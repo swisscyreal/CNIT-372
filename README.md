@@ -1,6 +1,6 @@
 # CNIT-372
 
-## Project Name
+## Project Name:
 Car Dealership Database
 
 ## Introduction:
