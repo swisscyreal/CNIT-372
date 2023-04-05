@@ -11,6 +11,9 @@ The Car Dealership Database project is designed to create an efficient way for e
 - Easy access to information: A database can provide easy access to information, which can help employees quickly find the information they need to serve customers and manage their inventory.
 - Improved decision making: A well-designed database can provide valuable insights into sales trends, customer preferences, and inventory management, which can help car dealerships make informed decisions.
 
+## Organization of Code
+<...to do...>
+
 ## Instructions for using the code:
 1. Clone the repository to your local machine.
 2. Open Oracle's SQL Developer.
