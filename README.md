@@ -6,7 +6,7 @@ Car Dealership Database
 ## Introduction:
 The Car Dealership Database project is designed to create an efficient way for employees to search for cars, customers, and car sales using Oracle's SQL Developer. The goal of this project is to provide an easy-to-use interface for car dealerships that can help them manage their inventory, employee, sales, and customer data efficiently.
 
-## Benefits of creating a database for the Dealership:
+## Benefits of creating a database for the dealership:
 - Efficient data management: By creating a database, car dealerships can efficiently manage their inventory, sales, and customer data, which can help them save time and improve their operations.
 - Easy access to information: A database can provide easy access to information, which can help employees quickly find the information they need to serve customers and manage their inventory.
 - Improved decision making: A well-designed database can provide valuable insights into sales trends, customer preferences, and inventory management, which can help car dealerships make informed decisions.
