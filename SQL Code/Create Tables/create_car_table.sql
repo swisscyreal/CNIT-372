@@ -20,8 +20,8 @@ DROP TABLE CAR;
 --========================
 -- Create tables
 --========================
-CREATE TABLE CAR(
-  VIN VARCHAR2(17),
+CREATE TABLE CAR (
+  VIN VARCHAR2(17) PRIMARY KEY,
   Year VARCHAR2(4),
   Make VARCHAR2(30),
   Color VARCHAR2(15)
