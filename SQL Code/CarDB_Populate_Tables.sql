@@ -2060,6 +2060,7 @@ DECLARE
    v_customer_id  VARCHAR2(10);
    v_employee_id  VARCHAR2(10);
    v_price        NUMBER(8,2);
+   v_sale_date    DATE;
 BEGIN
    FOR i IN 1..500 LOOP
       -- Generate random data for each column
@@ -2077,10 +2078,11 @@ BEGIN
       WHERE ROWNUM = 1;
       v_sale_id := 'S' || LPAD(i, 5, '0');
       v_price := TRUNC(DBMS_RANDOM.VALUE(20000, 50000), 2);
+      v_sale_date := TO_DATE('2023-04-21', 'YYYY-MM-DD') - DBMS_RANDOM.VALUE(0, 365);
 
       -- Insert new row into CAR_SALE table
-      INSERT INTO CAR_SALE (SaleID, VIN, CustomerID, EmployeeID, Price)
-      VALUES (v_sale_id, v_vin, v_customer_id, v_employee_id, v_price);
+      INSERT INTO CAR_SALE (SaleID, VIN, CustomerID, EmployeeID, Price, SaleDate)
+      VALUES (v_sale_id, v_vin, v_customer_id, v_employee_id, v_price, v_sale_date);
    END LOOP;
    COMMIT;
 END;
