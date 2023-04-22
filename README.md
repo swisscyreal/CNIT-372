@@ -17,6 +17,7 @@ The Car Dealership Database project is designed to create an efficient way for e
   - CarDB_Populate_Tables
   - CarDB_Questions_Package
   - CarDB_Questions_Execute
+* README.md
 
 ## Instructions for using the code:
 1. Clone the repository to your local machine.
