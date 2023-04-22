@@ -23,7 +23,7 @@ The Car Dealership Database project is designed to create an efficient way for e
 2. Open Oracle's SQL Developer.
 3. Import the database schema into your SQL Developer.
 4. Run the queries in the SQL files to create the necessary tables and data.
-  - First run CarDB_Create_Tables.sql to create all necessary tables.
-  - Then execute CarDB_Populate_Tables.sql to load all data into the database.
-  - Then import the CarDB_Questions_Package.sql to add all the functions and procedures needed to answer the questions.
-  - Lastly, reference CarDB_Questions_Execute.sql to use the functions and procedures for each question.
+    - First run CarDB_Create_Tables.sql to create all necessary tables.
+    - Then execute CarDB_Populate_Tables.sql to load all data into the database.
+    - Then import the CarDB_Questions_Package.sql to add all the functions and procedures needed to answer the questions.
+    - Lastly, reference CarDB_Questions_Execute.sql to use the functions and procedures for each question.
