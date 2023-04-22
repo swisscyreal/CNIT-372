@@ -1,7 +1,7 @@
 /*====================
 Package Header
 ====================*/
-CREATE OR REPLACE PACKAGE employee_sales_pkg AS
+CREATE OR REPLACE PACKAGE CarDB_Question_pkg AS
   PROCEDURE get_employee_most_car_sales(emp_id OUT VARCHAR2, num_sales OUT NUMBER);
   PROCEDURE employee_sales_quarter;
   FUNCTION get_avg_car_sale_price(sale_date IN DATE) RETURN NUMBER;
@@ -17,7 +17,7 @@ END;
 /*====================
 Package Body
 ====================*/
-CREATE OR REPLACE PACKAGE BODY employee_sales_pkg AS
+CREATE OR REPLACE PACKAGE BODY CarDB_Question_pkg AS
   --===============
   -- Question 1
   -- Which employee has had the most number of car sales in this quarter?
