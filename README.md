@@ -12,7 +12,10 @@ The Car Dealership Database project is designed to create an efficient way for e
 - Improved decision making: A well-designed database can provide valuable insights into sales trends, customer preferences, and inventory management, which can help car dealerships make informed decisions.
 
 ## Organization of Code
-<...to do...>
+* SQL CODE
+  - CarDB_Create_Tables
+  - CarDB_Populate_Tables
+  - CarDB_Questions
 
 ## Instructions for using the code:
 1. Clone the repository to your local machine.
