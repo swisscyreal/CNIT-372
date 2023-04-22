@@ -15,12 +15,15 @@ The Car Dealership Database project is designed to create an efficient way for e
 * SQL CODE
   - CarDB_Create_Tables
   - CarDB_Populate_Tables
-  - CarDB_Questions
+  - CarDB_Questions_Package
+  - CarDB_Questions_Execute
 
 ## Instructions for using the code:
 1. Clone the repository to your local machine.
 2. Open Oracle's SQL Developer.
 3. Import the database schema into your SQL Developer.
 4. Run the queries in the SQL files to create the necessary tables and data.
-5. Use SQL queries to search, sort, and filter data as needed.
-
+  - First run CarDB_Create_Tables.sql to create all necessary tables.
+  - Then execute CarDB_Populate_Tables.sql to load all data into the database.
+  - Then import the CarDB_Questions_Package.sql to add all the functions and procedures needed to answer the questions.
+  - Lastly, reference CarDB_Questions_Execute.sql to use the functions and procedures for each question.
