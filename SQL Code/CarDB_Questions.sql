@@ -1,4 +1,3 @@
-/*
 --======================
 -- Q1
 -- Which employee has had the most number of car sales in this quarter?
@@ -143,4 +142,3 @@ BEGIN
   
   RETURN v_result;
 END;
-*/
