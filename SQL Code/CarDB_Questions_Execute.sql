@@ -68,4 +68,7 @@ BEGIN
 END;
 
 -- To execute Q10
+BEGIN
+  carss_sales_pkg.print_top_year_of_car;
+END;
 
