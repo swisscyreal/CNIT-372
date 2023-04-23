@@ -218,7 +218,63 @@ END car_sales_pkg;
   
   --======================
   -- Q10
-  -- 
+  -- What year of car is getting sold the most in each year?
   --======================
-  
+ CREATE OR REPLACE PACKAGE carss_sales_pkg IS
+  -- Function to get the top year of car sold for each year
+  FUNCTION get_top_year_of_car(year_in IN NUMBER)
+    RETURN CAR.make%TYPE;
+
+  -- Procedure to print the top year of car sold for each year
+  PROCEDURE print_top_year_of_car;
+
+END carss_sales_pkg;
+/
+
+CREATE OR REPLACE PACKAGE BODY carss_sales_pkg IS
+  -- Function to get the top year of car sold for each year
+  FUNCTION get_top_year_of_car(year_in IN NUMBER)
+    RETURN CAR.make%TYPE
+  IS
+    top_year CAR.make%TYPE;
+  BEGIN
+    SELECT make
+    INTO top_year
+    FROM (
+      SELECT c.make, COUNT(*) as num_cars_sold
+      FROM car c
+      JOIN car_sale s ON c.vin = s.vin
+      WHERE EXTRACT(YEAR FROM s.saledate) = year_in
+      GROUP BY c.make
+      ORDER BY num_cars_sold DESC
+    ) WHERE ROWNUM = 1;
+    RETURN top_year;
+  END;
+
+  -- Procedure to print the top year of car sold for each year
+  PROCEDURE print_top_year_of_car
+  IS
+    year_list SYS_REFCURSOR;
+    year_in NUMBER;
+    top_year CAR.make%TYPE;
+  BEGIN
+    OPEN year_list FOR
+      SELECT DISTINCT
+    EXTRACT(YEAR FROM "A1"."SALEDATE") "EXTRACT(YEARFROMSALEDATE)"
+FROM
+    "CAR_SALE" "A1"
+ORDER BY
+    EXTRACT(YEAR FROM "A1"."SALEDATE");
+    LOOP
+      FETCH year_list INTO year_in;
+      EXIT WHEN year_list%NOTFOUND;
+      top_year := get_top_year_of_car(year_in);
+      DBMS_OUTPUT.PUT_LINE('Year ' || year_in || ': ' || top_year);
+    END LOOP;
+    CLOSE year_list;
+  END;
+
+END carss_sales_pkg;
+/
+
 END;
