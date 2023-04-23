@@ -53,14 +53,6 @@ BEGIN
 END;
 
 
-
-
-
-
-
-
-
-
 -- To execute Q9
 -- Change the year to either ("2022") or ("2023")
 BEGIN
