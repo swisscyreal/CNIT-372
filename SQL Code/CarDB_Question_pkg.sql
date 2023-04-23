@@ -166,9 +166,55 @@ CREATE OR REPLACE PACKAGE BODY CarDB_Question_pkg AS
   
   --======================
   -- Q9
-  -- 
+  -- Which customers are buying the most cars every year?
   --======================
-  
+  CREATE OR REPLACE PACKAGE car_sales_pkg IS
+  -- Function to get the top customers for a given year
+  FUNCTION get_top_customers(year_in IN NUMBER)
+    RETURN SYS_REFCURSOR;
+
+  -- Procedure to print the top customers for a given year
+  PROCEDURE print_top_customers(year_in IN NUMBER);
+
+END car_sales_pkg;
+/
+
+CREATE OR REPLACE PACKAGE BODY car_sales_pkg IS
+  -- Function to get the top customers for a given year
+  FUNCTION get_top_customers(year_in IN NUMBER)
+    RETURN SYS_REFCURSOR
+  IS
+    top_customers SYS_REFCURSOR;
+  BEGIN
+    OPEN top_customers FOR
+      SELECT c.custfirstname || ' ' || c.custlastname as custname, COUNT(*) as num_cars_bought
+      FROM customer c
+      JOIN car_sale cs ON c.customerid = cs.customerid 
+      WHERE EXTRACT(YEAR FROM cs.saledate) = year_in
+      GROUP BY c.custfirstname || ' ' || c.custlastname
+      ORDER BY num_cars_bought DESC;
+    RETURN top_customers;
+  END;
+
+  -- Procedure to print the top customers for a given year
+  PROCEDURE print_top_customers(year_in IN NUMBER)
+  IS
+    top_customers SYS_REFCURSOR;
+    custfirstname customer.custfirstname%TYPE;
+    num_cars_bought NUMBER;
+  BEGIN
+    top_customers := get_top_customers(year_in);
+    DBMS_OUTPUT.PUT_LINE('Top customers for year ' || year_in || ':');
+    LOOP
+      FETCH top_customers INTO custfirstname, num_cars_bought;
+      EXIT WHEN top_customers%NOTFOUND;
+      DBMS_OUTPUT.PUT_LINE(custfirstname || ' bought ' || num_cars_bought || ' cars.');
+    END LOOP;
+    CLOSE top_customers;
+  END;
+
+END car_sales_pkg;
+/
   
   --======================
   -- Q10
