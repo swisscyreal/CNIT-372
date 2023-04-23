@@ -49,5 +49,23 @@ DECLARE
   v_result VARCHAR2(50);
 BEGIN
   v_result := GET_MOST_POPULAR_CAR_THIS_YEAR();
-  DBMS_OUTPUT.PUT_LINE('The most popular car this year is: ' || v_result);
+  DBMS_OUTPUT.PUT_LINE('The most popular car this year is: ' || v_result)
 END;
+
+
+
+
+
+
+
+
+
+
+-- To execute Q9
+-- Change the year to either ("2022") or ("2023")
+BEGIN
+  car_sales_pkg.print_top_customers(2023);
+END;
+
+-- To execute Q10
+
