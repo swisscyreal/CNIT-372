@@ -148,21 +148,78 @@ CREATE OR REPLACE PACKAGE BODY CarDB_Question_pkg AS
   
   --======================
   -- Q6
-  -- 
+  -- What is the most popular car for each month?
   --======================
-  
+  DECLARE
+v_max_sales NUMBER := 0;
+    v_max_make VARCHAR2(30);
+    v_max_year VARCHAR2(4);
+    month NUMBER := 1;
+    v_month varchar2(16);
+BEGIN
+    LOOP 
+    SELECT TO_CHAR(TO_DATE(month, 'MM'), 'Month') AS "Month Name" into v_month FROM DUAL;
+    SELECT Make, Year, COUNT(*) INTO v_max_make, v_max_year, v_max_sales FROM CAR_SALE
+              JOIN CAR ON CAR_SALE.VIN = CAR.VIN
+              WHERE EXTRACT(MONTH FROM SaleDate) = month
+              GROUP BY Make, Year
+              ORDER BY COUNT(*) DESC
+              FETCH FIRST 1 ROW ONLY;
+DBMS_OUTPUT.PUT_LINE('The most popular car in ' || v_month || ' is: ' || v_max_make || ' ' || v_max_year);
+    month := month+1;
+    EXIT WHEN month = 13;
+    END LOOP;
+    
+  END;
   
   --======================
   -- Q7
-  -- 
+  -- What is the most popular color of car for each month?
   --======================
-  
+  DECLARE
+v_max_sales NUMBER := 0;
+    month NUMBER := 1;
+    v_month varchar2(16);
+    v_max_color varchar2(100);
+BEGIN
+LOOP
+SELECT TO_CHAR(TO_DATE(month, 'MM'), 'Month') AS "Month Name" into v_month FROM DUAL;
+SELECT COLOR, COUNT(*)into v_max_color, v_max_sales FROM CAR_SALE
+JOIN CAR ON CAR.VIN = CAR_SALE.VIN
+WHERE EXTRACT(MONTH FROM SaleDate) = month
+GROUP BY COLOR
+ORDER BY COUNT(*) DESC
+FETCH FIRST 1 ROW ONLY;
+DBMS_OUTPUT.PUT_LINE('In ' || v_month ||', the most popular car color was '|| v_max_color);
+month := month+1;
+EXIT WHEN month = 13;
+END LOOP;
+END;
   
   --======================
   -- Q8
-  -- 
+  -- Which customer paid the most for a car in each month?
   --======================
-  
+  DECLARE
+v_max_price NUMBER := 0;
+    v_custfname VARCHAR2(50);
+    v_lastname VARCHAR2(50);
+    month NUMBER := 1;
+    v_month varchar2(16);
+BEGIN
+LOOP
+SELECT TO_CHAR(TO_DATE(month, 'MM'), 'Month') AS "Month Name" into v_month FROM DUAL;
+SELECT MAX(PRICE), CUSTFIRSTNAME, CUSTLASTNAME INTO v_max_price, v_custfname, v_lastname FROM CAR_SALE
+JOIN CUSTOMER ON CAR_SALE.CUSTOMERID = customer.customerid
+WHERE EXTRACT(MONTH FROM SaleDate) = month
+GROUP BY customer.custfirstname, custlastname
+ORDER BY MAX(PRICE) DESC
+FETCH FIRST 1 ROW ONLY;
+DBMS_OUTPUT.PUT_LINE('In ' || v_month || ', ' || v_custfname || ' ' || v_lastname || ' paid the most for a car');
+month := month+1;
+EXIT WHEN month = 13;
+END LOOP;
+END;
   
   --======================
   -- Q9
