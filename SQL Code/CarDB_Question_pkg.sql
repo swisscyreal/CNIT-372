@@ -280,7 +280,7 @@ END car_sales_pkg;
  CREATE OR REPLACE PACKAGE carss_sales_pkg IS
   -- Function to get the top year of car sold for each year
   FUNCTION get_top_year_of_car(year_in IN NUMBER)
-    RETURN CAR.make%TYPE;
+    RETURN CAR.year%TYPE;
 
   -- Procedure to print the top year of car sold for each year
   PROCEDURE print_top_year_of_car;
@@ -291,18 +291,18 @@ END carss_sales_pkg;
 CREATE OR REPLACE PACKAGE BODY carss_sales_pkg IS
   -- Function to get the top year of car sold for each year
   FUNCTION get_top_year_of_car(year_in IN NUMBER)
-    RETURN CAR.make%TYPE
+    RETURN CAR.year%TYPE
   IS
-    top_year CAR.make%TYPE;
+    top_year CAR.year%TYPE;
   BEGIN
-    SELECT make
+    SELECT year
     INTO top_year
     FROM (
-      SELECT c.make, COUNT(*) as num_cars_sold
+      SELECT c.year, COUNT(*) as num_cars_sold
       FROM car c
       JOIN car_sale s ON c.vin = s.vin
       WHERE EXTRACT(YEAR FROM s.saledate) = year_in
-      GROUP BY c.make
+      GROUP BY c.year
       ORDER BY num_cars_sold DESC
     ) WHERE ROWNUM = 1;
     RETURN top_year;
@@ -313,7 +313,7 @@ CREATE OR REPLACE PACKAGE BODY carss_sales_pkg IS
   IS
     year_list SYS_REFCURSOR;
     year_in NUMBER;
-    top_year CAR.make%TYPE;
+    top_year CAR.year%TYPE;
   BEGIN
     OPEN year_list FOR
       SELECT DISTINCT
@@ -331,7 +331,5 @@ ORDER BY
     CLOSE year_list;
   END;
 
-END carss_sales_pkg;
-/
 
 END;
