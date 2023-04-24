@@ -140,31 +140,31 @@ FUNCTION GET_MOST_POPULAR_CAR_THIS_YEAR RETURN VARCHAR2
 ### What is the most popular car for each month?
 Similar to the most popular car for the year, this information provides a more detailed dive into consumer preference. The further breakdown by month can take into account other factors that may change through the months.
 ```SQL
-CODE GOES HERE
+<CODE GOES HERE>
 ```
 
 ### What is the most popular color of car for each month?
 This question reveals if there is a pattern of customer’s preference of car color as it is affected by month. This information will aid in advertising efforts and ordering methodology.
 ```SQL
-CODE GOES HERE
+<CODE GOES HERE>
 ```
 
 ### Which customer paid the most for a car in each month?
 This question reveals the top customer by month, which could be beneficial to the dealership because the employee that sold to the top customer could be rewarded with a bonus or other incentive for that month. This bonus for top sale of the month could also help the car dealership motivate other employees to work harder in order to earn the title of top monthly sales person, and receive the bonus.
 ```SQL
-CODE GOES HERE
+<CODE GOES HERE>
 ```
 
 ### Which customers are buying the most cars every year?
 This question tells you who are likely going to be your top customers. You can cater toward these customers by making sure they know that you value them. You can also offer them deals since they’ve shown interest in the cars. 
 ```SQL
-CODE GOES HERE
+<CODE GOES HERE>
 ```
 
 ### What year of car is getting sold the most in each year?
 This question tells you the cars of which year that are getting sold the most. This helps so that we can market cars of that year more, since they are the most popular. It will also help since we can buy more cars of that year, since they are in demand. 
 ```SQL
-CODE GOES HERE
+<CODE GOES HERE>
 ```
 
 ## Team Contributions
