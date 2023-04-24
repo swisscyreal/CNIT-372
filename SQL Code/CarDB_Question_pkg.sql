@@ -7,11 +7,6 @@ CREATE OR REPLACE PACKAGE CarDB_Question_pkg AS
   FUNCTION get_avg_car_sale_price(sale_date IN DATE) RETURN NUMBER;
   FUNCTION find_top_selling_employee RETURN VARCHAR2;
   FUNCTION GET_MOST_POPULAR_CAR_THIS_YEAR RETURN VARCHAR2;
-  -- Add functions / procedures here
-  --
-  --
-  --
-  --
 END;
 
 /*====================
@@ -145,6 +140,7 @@ CREATE OR REPLACE PACKAGE BODY CarDB_Question_pkg AS
     
     RETURN v_result;
   END;
+  END CarDB_Question_pkg;
   
   --======================
   -- Q6
@@ -331,6 +327,3 @@ ORDER BY
     CLOSE year_list;
   END;
 END carss_sales_pkg;
-/
-
-END;
