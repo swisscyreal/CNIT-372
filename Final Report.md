@@ -14,7 +14,7 @@ The database will consist of 4 related tables: CAR, EMPLOYEE, CUSTOMER, and CAR_
 ## Solutions
 ### Which employee has had the most number of car sales in this quarter?
 This question can help the dealership know who their best sales people are, and can help them know who deserves a raise, promotion, or bonus for the quarter.
-'''
+```SQL
 PROCEDURE get_employee_most_car_sales(emp_id OUT VARCHAR2, num_sales OUT NUMBER)
   IS
     v_max_sales NUMBER := 0;
@@ -32,11 +32,11 @@ PROCEDURE get_employee_most_car_sales(emp_id OUT VARCHAR2, num_sales OUT NUMBER)
         END IF;
     END LOOP;
   END;
-'''
+```
 
 ### What is the total value of cars sold by each employee for the quarter?
 This question can help the dealership know which employees are meeting their sales quota and which are lacking, and who needs to have a meeting with management.
-'''SQL
+```SQL
 PROCEDURE employee_sales_quarter
   AS
     v_quarter_start DATE := TRUNC(SYSDATE, 'Q');
@@ -66,11 +66,11 @@ PROCEDURE employee_sales_quarter
     END LOOP;
     DBMS_OUTPUT.PUT_LINE('Employees not shown have 0 Sales');
   END;
-'''
+```
 
 ### What is the average value of car sold each day during this year?
 This question can help the dealership know the statistics of which season, and day of the week is their peak sales time, so they can play to their strengths on those days.
-'''SQL
+```SQL
 FUNCTION get_avg_car_sale_price(sale_date IN DATE) RETURN NUMBER
   IS
     total_price NUMBER := 0;
@@ -88,11 +88,11 @@ FUNCTION get_avg_car_sale_price(sale_date IN DATE) RETURN NUMBER
       RETURN 0;
     END IF;
   END;
-'''
+```
 
 ### Which employee has the highest value of cars sold each day during this month?
 The information provided by this question will be used by management to assess their sales team. It will identify employees that are doing well and also identify employees that may need additional coaching. More specific than quarter values, it will identify day to day trends for the employees.
-'''SQL
+```SQL
 FUNCTION find_top_selling_employee RETURN VARCHAR2
   AS
     top_employee VARCHAR2(30);
@@ -107,11 +107,11 @@ FUNCTION find_top_selling_employee RETURN VARCHAR2
     
     RETURN top_employee;
   END;
-'''
+```
 
 ### What is the most popular car this year?
 This information may show up in many management reports. It can drive management decisions for ordering, marketing, and pricing their stable of vehicles.
-'''SQL
+```SQL
 FUNCTION GET_MOST_POPULAR_CAR_THIS_YEAR RETURN VARCHAR2
   IS
     v_year CAR.Year%TYPE;
@@ -138,7 +138,7 @@ FUNCTION GET_MOST_POPULAR_CAR_THIS_YEAR RETURN VARCHAR2
     
     RETURN v_result;
   END;
-'''
+```
 
 
 ### What is the most popular car for each month?
