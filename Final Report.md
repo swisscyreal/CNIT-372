@@ -1,6 +1,5 @@
-# CNIT 372: Database Programming
-## Group 4
-## Sam Cyr, Ryan Flanagan, Sumair Ahmed
+# CNIT 372: Database Programming 
+## Group 4: Sam Cyr, Ryan Flanagan, Sumair Ahmed
 
 # Group Project - Final Report
 ## Background
