@@ -14,7 +14,7 @@ The database will consist of 4 related tables: CAR, EMPLOYEE, CUSTOMER, and CAR_
 ## Solutions
 ### Which employee has had the most number of car sales in this quarter?
 This question can help the dealership know who their best sales people are, and can help them know who deserves a raise, promotion, or bonus for the quarter.
-'''SQL
+'''
 PROCEDURE get_employee_most_car_sales(emp_id OUT VARCHAR2, num_sales OUT NUMBER)
   IS
     v_max_sales NUMBER := 0;
