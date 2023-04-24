@@ -1,18 +1,18 @@
-CNIT 372: Database Programming
-Group 4
-Sam Cyr, Ryan Flanagan, Sumair Ahmed
+# CNIT 372: Database Programming
+## Group 4
+## Sam Cyr, Ryan Flanagan, Sumair Ahmed
 
-Group Project - Final Report
-Background
+# Group Project - Final Report
+## Background
 We chose to create a database for a car dealership, using Oracle’s sqldeveloper, and we plan to use what we’ve learned about PL/SQL so far in class in order to make our own datatype: COLOR. The goal of the database will be an efficient way for employees to search for cars, customers, and car sales, and sort them by whatever parameter they would like. The database will need to be quick and easily accessible, which is why we chose oracle sqldeveloper to host our database, since we have prior experience with the app, and we know it will get the job done.
 
-Database Description
+## Database Description
 The database will consist of 4 related tables: CAR, EMPLOYEE, CUSTOMER, and CAR_SALE. The columns of the car table are vin and the datatype is varchar2(17), make and the datatype is varchar2(4), year and the datatype is varchar2(30), and color which we make our own datatype for, but for now the datatype will be varchar2(15). The second table is the Employee table and the columns (columns:datatype format) are EmployeeID:varchar2(10),  EmpFirstName:varchar2(30), EmpLastName:varchar2(30), Phone:varchar2(10), and Email:varchar2(100). The next table is the Customer table, and the columns are CUstomerID;varchar2(10), CustFirstName:varchar2(30), CustLastName:varchar2(30), Phone:varchar2(10), Email:varchar2(100). And our final table is Car_Sale and the columns are SaleID:varchar2(10), vin(from Car table), CustomerID(from Customer table), EmployeeID (from Employee table), and price:numeric(6,2). The cardinality is as follows: One employee to many Car_sales, One Car to One Car_sale, and One Customer to one or many Car_Sale(s).
 
 
 
-Solutions
-Which employee has had the most number of car sales in this quarter?
+## Solutions
+### Which employee has had the most number of car sales in this quarter?
 This question can help the dealership know who their best sales people are, and can help them know who deserves a raise, promotion, or bonus for the quarter.
 
 PROCEDURE get_employee_most_car_sales(emp_id OUT VARCHAR2, num_sales OUT NUMBER)
@@ -34,7 +34,7 @@ PROCEDURE get_employee_most_car_sales(emp_id OUT VARCHAR2, num_sales OUT NUMBER)
   END;
 
 
-What is the total value of cars sold by each employee for the quarter?
+### What is the total value of cars sold by each employee for the quarter?
 This question can help the dealership know which employees are meeting their sales quota and which are lacking, and who needs to have a meeting with management.
 
 PROCEDURE employee_sales_quarter
@@ -68,7 +68,7 @@ PROCEDURE employee_sales_quarter
   END;
 
 
-What is the average value of car sold each day during this year?
+### What is the average value of car sold each day during this year?
 This question can help the dealership know the statistics of which season, and day of the week is their peak sales time, so they can play to their strengths on those days.
 
 FUNCTION get_avg_car_sale_price(sale_date IN DATE) RETURN NUMBER
@@ -90,7 +90,7 @@ FUNCTION get_avg_car_sale_price(sale_date IN DATE) RETURN NUMBER
   END;
 
 
-Which employee has the highest value of cars sold each day during this month?
+### Which employee has the highest value of cars sold each day during this month?
 The information provided by this question will be used by management to assess their sales team. It will identify employees that are doing well and also identify employees that may need additional coaching. More specific than quarter values, it will identify day to day trends for the employees.
 
 FUNCTION find_top_selling_employee RETURN VARCHAR2
@@ -109,7 +109,7 @@ FUNCTION find_top_selling_employee RETURN VARCHAR2
   END;
 
 
-What is the most popular car this year?
+### What is the most popular car this year?
 This information may show up in many management reports. It can drive management decisions for ordering, marketing, and pricing their stable of vehicles.
 
 FUNCTION GET_MOST_POPULAR_CAR_THIS_YEAR RETURN VARCHAR2
@@ -141,33 +141,33 @@ FUNCTION GET_MOST_POPULAR_CAR_THIS_YEAR RETURN VARCHAR2
 
 
 
-What is the most popular car for each month?
+### What is the most popular car for each month?
 Similar to the most popular car for the year, this information provides a more detailed dive into consumer preference. The further breakdown by month can take into account other factors that may change through the months.
 
 
-What is the most popular color of car for each month?
+### What is the most popular color of car for each month?
 This question reveals if there is a pattern of customer’s preference of car color as it is affected by month. This information will aid in advertising efforts and ordering methodology.
 
 
-Which customer paid the most for a car in each month?
+### Which customer paid the most for a car in each month?
 This question reveals the top customer by month, which could be beneficial to the dealership because the employee that sold to the top customer could be rewarded with a bonus or other incentive for that month. This bonus for top sale of the month could also help the car dealership motivate other employees to work harder in order to earn the title of top monthly sales person, and receive the bonus.
 
 
-Which customers are buying the most cars every year?
+### Which customers are buying the most cars every year?
 This question tells you who are likely going to be your top customers. You can cater toward these customers by making sure they know that you value them. You can also offer them deals since they’ve shown interest in the cars. 
 
 
-What year of car is getting sold the most in each year?
+### What year of car is getting sold the most in each year?
 This question tells you the cars of which year that are getting sold the most. This helps so that we can market cars of that year more, since they are the most popular. It will also help since we can buy more cars of that year, since they are in demand. 
 
 
-Team Contributions
-Sam Cyr
+## Team Contributions
+### Sam Cyr
 Presentation
-slides for questions 1-5
+* slides for questions 1-5
 Code
-Created Car table, data, and care_sale data.
-Wrote functions and procedures for questions 1-5
+* Created Car table, data, and care_sale data.
+* Wrote functions and procedures for questions 1-5
 Report
-Solutions for questions 1-5
+* Solutions for questions 1-5
 
